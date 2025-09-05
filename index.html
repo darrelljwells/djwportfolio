@@ -82,6 +82,76 @@
             color: #000;
         }
 
+        /* Contact Icons at Bottom */
+        .contact-icons {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 1000;
+        }
+
+        .contact-icon {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            text-decoration: none;
+            color: #fff;
+            border: 1px solid #333;
+            background: #111;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .contact-icon:hover {
+            border-color: #fff;
+            background: #222;
+            transform: translateY(-2px);
+        }
+
+        .contact-icon.instagram {
+            border-radius: 8px;
+        }
+
+        .contact-icon.email {
+            border-radius: 4px;
+        }
+
+        .contact-icon.phone {
+            border-radius: 50%;
+        }
+
+        /* Tooltip for contact icons */
+        .contact-icon::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 45px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #222;
+            color: #fff;
+            padding: 5px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            text-transform: lowercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-icon:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
         /* Main content area */
         .main-content {
             display: flex;
@@ -329,6 +399,17 @@
             .about-content {
                 padding: 0 10px;
             }
+
+            .contact-icons {
+                bottom: 20px;
+                gap: 15px;
+            }
+
+            .contact-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -340,6 +421,26 @@
             <div class="location">los angeles</div>
         </div>
         <a href="#" class="info-button" onclick="showAbout()">?</a>
+    </div>
+
+    <!-- Contact Icons -->
+    <div class="contact-icons">
+        <a href="https://instagram.com/darrelljwells" 
+           target="_blank" 
+           class="contact-icon instagram" 
+           data-tooltip="instagram">
+            👁️
+        </a>
+        <a href="mailto:darrelljavan@gmail.com" 
+           class="contact-icon email" 
+           data-tooltip="email">
+            💌
+        </a>
+        <a href="tel:3608691344" 
+           class="contact-icon phone" 
+           data-tooltip="call me">
+            📱
+        </a>
     </div>
 
     <!-- Main Navigation -->
